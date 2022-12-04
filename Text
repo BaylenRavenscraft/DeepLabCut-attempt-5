@@ -1,0 +1,1119 @@
+
+(base) C:\Users\bayle>activate DEEPLABCUT
+
+(DEEPLABCUT) C:\Users\bayle>python -m deeplabcut
+Loading DLC 2.2.3...
+Starting GUI...
+Created "C:\Users\bayle\Desktop\DLCs\test 5-troubleshooting\DLC-attempt-5-BR-2022-12-03\videos"
+Created "C:\Users\bayle\Desktop\DLCs\test 5-troubleshooting\DLC-attempt-5-BR-2022-12-03\labeled-data"
+Created "C:\Users\bayle\Desktop\DLCs\test 5-troubleshooting\DLC-attempt-5-BR-2022-12-03\training-datasets"
+Created "C:\Users\bayle\Desktop\DLCs\test 5-troubleshooting\DLC-attempt-5-BR-2022-12-03\dlc-models"
+Copying the videos
+C:\Users\bayle\Desktop\DLCs\test 5-troubleshooting\DLC-attempt-5-BR-2022-12-03\videos\8-29-22 5-1 SCI 8W.avi
+C:\Users\bayle\Desktop\DLCs\test 5-troubleshooting\DLC-attempt-5-BR-2022-12-03\videos\8-29-22 5-2 SCI 8W.avi
+Generated "C:\Users\bayle\Desktop\DLCs\test 5-troubleshooting\DLC-attempt-5-BR-2022-12-03\config.yaml"
+
+A new project with name DLC-attempt-5-BR-2022-12-03 is created at C:\Users\bayle\Desktop\DLCs\test 5-troubleshooting and a configurable file (config.yaml) is stored there. Change the parameters in this file to adapt to your project's needs.
+ Once you have changed the configuration file, use the function 'extract_frames' to select frames for labeling.
+. [OPTIONAL] Use the function 'add_new_videos' to add new videos to your project (at any stage).
+Project "C:\Users\bayle\Desktop\DLCs\test 5-troubleshooting\DLC-attempt-5-BR-2022-12-03" already exists!
+Config file read successfully.
+Extracting frames based on kmeans ...
+Kmeans-quantization based extracting of frames from 0.0  seconds to 19.79  seconds.
+Extracting and downsampling... 1999  frames from the video.
+1999it [00:02, 795.60it/s]
+Kmeans clustering ... (this might take a while)
+Extracting frames based on kmeans ...
+Kmeans-quantization based extracting of frames from 0.0  seconds to 19.79  seconds.
+Extracting and downsampling... 1999  frames from the video.
+1999it [00:02, 942.26it/s]
+Kmeans clustering ... (this might take a while)
+Frames were successfully extracted, for the videos listed in the config.yaml file.
+
+You can now label the frames using the function 'label_frames' (Note, you should label frames extracted from diverse videos (and many videos; we do not recommend training on single videos!)).
+You can now check the labels, using 'check_labels' before proceeding. Then, you can use the function 'create_training_dataset' to create the training dataset.
+Creating images with labels by BR.
+100%|████████████████████████████████| 20/20 [00:03<00:00,  5.31it/s]
+100%|████████████████████████████████| 20/20 [00:03<00:00,  5.29it/s]
+If all the labels are ok, then use the function 'create_training_dataset' to create the training dataset!
+The training dataset is successfully created. Use the function 'train_network' to start training. Happy training!
+Selecting single-animal trainer
+Config:
+{'all_joints': [[0],
+                [1],
+                [2],
+                [3],
+                [4],
+                [5],
+                [6],
+                [7],
+                [8],
+                [9],
+                [10],
+                [11],
+                [12],
+                [13],
+                [14],
+                [15],
+                [16]],
+ 'all_joints_names': ['L.H. Distal digit',
+                      'L.H. distal digit',
+                      'L.H. medial digit',
+                      'L.H. Medial digit',
+                      'L.H. Thumbnub',
+                      'L.H. metatarsals',
+                      'L.H. Ankle',
+                      'L.H. Knee',
+                      'Tailbase',
+                      'R.H. Knee',
+                      'R.H. Ankle',
+                      'R.H. metatarsals',
+                      'R.H. Thumbnub',
+                      'R.H. Medial digit',
+                      'R.H. medial digit',
+                      'R.H. distal digit',
+                      'R.H. Distal digit'],
+ 'alpha_r': 0.02,
+ 'apply_prob': 0.5,
+ 'batch_size': 1,
+ 'contrast': {'clahe': True,
+              'claheratio': 0.1,
+              'histeq': True,
+              'histeqratio': 0.1},
+ 'convolution': {'edge': False,
+                 'emboss': {'alpha': [0.0, 1.0], 'strength': [0.5, 1.5]},
+                 'embossratio': 0.1,
+                 'sharpen': False,
+                 'sharpenratio': 0.3},
+ 'crop_pad': 0,
+ 'cropratio': 0.4,
+ 'dataset': 'training-datasets\\iteration-0\\UnaugmentedDataSet_DLC-attempt-5Dec3\\DLC-attempt-5_BR95shuffle1.mat',
+ 'dataset_type': 'imgaug',
+ 'decay_steps': 30000,
+ 'deterministic': False,
+ 'display_iters': 1000,
+ 'fg_fraction': 0.25,
+ 'global_scale': 0.8,
+ 'init_weights': 'C:\\Users\\bayle\\anaconda3\\envs\\DEEPLABCUT\\lib\\site-packages\\deeplabcut\\pose_estimation_tensorflow\\models\\pretrained\\resnet_v1_50.ckpt',
+ 'intermediate_supervision': False,
+ 'intermediate_supervision_layer': 12,
+ 'location_refinement': True,
+ 'locref_huber_loss': True,
+ 'locref_loss_weight': 0.05,
+ 'locref_stdev': 7.2801,
+ 'log_dir': 'log',
+ 'lr_init': 0.0005,
+ 'max_input_size': 1500,
+ 'mean_pixel': [123.68, 116.779, 103.939],
+ 'metadataset': 'training-datasets\\iteration-0\\UnaugmentedDataSet_DLC-attempt-5Dec3\\Documentation_data-DLC-attempt-5_95shuffle1.pickle',
+ 'min_input_size': 64,
+ 'mirror': False,
+ 'multi_stage': False,
+ 'multi_step': [[0.005, 10000],
+                [0.02, 430000],
+                [0.002, 730000],
+                [0.001, 1030000]],
+ 'net_type': 'resnet_50',
+ 'num_joints': 17,
+ 'optimizer': 'sgd',
+ 'pairwise_huber_loss': False,
+ 'pairwise_predict': False,
+ 'partaffinityfield_predict': False,
+ 'pos_dist_thresh': 17,
+ 'project_path': 'C:\\Users\\bayle\\Desktop\\DLCs\\test '
+                 '5-troubleshooting\\DLC-attempt-5-BR-2022-12-03',
+ 'regularize': False,
+ 'rotation': 25,
+ 'rotratio': 0.4,
+ 'save_iters': 50000,
+ 'scale_jitter_lo': 0.5,
+ 'scale_jitter_up': 1.25,
+ 'scoremap_dir': 'test',
+ 'shuffle': True,
+ 'snapshot_prefix': 'C:\\Users\\bayle\\Desktop\\DLCs\\test '
+                    '5-troubleshooting\\DLC-attempt-5-BR-2022-12-03\\dlc-models\\iteration-0\\DLC-attempt-5Dec3-trainset95shuffle1\\train\\snapshot',
+ 'stride': 8.0,
+ 'weigh_negatives': False,
+ 'weigh_only_present_joints': False,
+ 'weigh_part_predictions': False,
+ 'weight_decay': 0.0001}
+Batch Size is 1
+C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\keras\engine\base_layer_v1.py:1694: UserWarning: `layer.apply` is deprecated and will be removed in a future version. Please use `layer.__call__` method instead.
+  warnings.warn('`layer.apply` is deprecated and '
+2022-12-03 20:37:51.041576: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading ImageNet-pretrained resnet_50
+2022-12-03 20:37:52.541205: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:357] MLIR V1 optimization pass is not enabled
+2022-12-03 20:37:53.616658: W tensorflow/c/c_api.cc:291] Operation '{name:'pose/locref_pred/block4/biases/Momentum/Assign' id:6191 op device:{requested: '', assigned: ''} def:{{{node pose/locref_pred/block4/biases/Momentum/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_FLOAT, validate_shape=false](pose/locref_pred/block4/biases/Momentum, pose/locref_pred/block4/biases/Momentum/Initializer/zeros)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+Max_iters overwritten as 50000
+Display_iters overwritten as 1000
+Save_iters overwritten as 10000
+Training parameter:
+{'stride': 8.0, 'weigh_part_predictions': False, 'weigh_negatives': False, 'fg_fraction': 0.25, 'mean_pixel': [123.68, 116.779, 103.939], 'shuffle': True, 'snapshot_prefix': 'C:\\Users\\bayle\\Desktop\\DLCs\\test 5-troubleshooting\\DLC-attempt-5-BR-2022-12-03\\dlc-models\\iteration-0\\DLC-attempt-5Dec3-trainset95shuffle1\\train\\snapshot', 'log_dir': 'log', 'global_scale': 0.8, 'location_refinement': True, 'locref_stdev': 7.2801, 'locref_loss_weight': 0.05, 'locref_huber_loss': True, 'optimizer': 'sgd', 'intermediate_supervision': False, 'intermediate_supervision_layer': 12, 'regularize': False, 'weight_decay': 0.0001, 'crop_pad': 0, 'scoremap_dir': 'test', 'batch_size': 1, 'dataset_type': 'imgaug', 'deterministic': False, 'mirror': False, 'pairwise_huber_loss': False, 'weigh_only_present_joints': False, 'partaffinityfield_predict': False, 'pairwise_predict': False, 'all_joints': [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16]], 'all_joints_names': ['L.H. Distal digit', 'L.H. distal digit', 'L.H. medial digit', 'L.H. Medial digit', 'L.H. Thumbnub', 'L.H. metatarsals', 'L.H. Ankle', 'L.H. Knee', 'Tailbase', 'R.H. Knee', 'R.H. Ankle', 'R.H. metatarsals', 'R.H. Thumbnub', 'R.H. Medial digit', 'R.H. medial digit', 'R.H. distal digit', 'R.H. Distal digit'], 'alpha_r': 0.02, 'apply_prob': 0.5, 'contrast': {'clahe': True, 'claheratio': 0.1, 'histeq': True, 'histeqratio': 0.1, 'gamma': False, 'sigmoid': False, 'log': False, 'linear': False}, 'convolution': {'edge': False, 'emboss': {'alpha': [0.0, 1.0], 'strength': [0.5, 1.5]}, 'embossratio': 0.1, 'sharpen': False, 'sharpenratio': 0.3}, 'cropratio': 0.4, 'dataset': 'training-datasets\\iteration-0\\UnaugmentedDataSet_DLC-attempt-5Dec3\\DLC-attempt-5_BR95shuffle1.mat', 'decay_steps': 30000, 'display_iters': 1000, 'init_weights': 'C:\\Users\\bayle\\anaconda3\\envs\\DEEPLABCUT\\lib\\site-packages\\deeplabcut\\pose_estimation_tensorflow\\models\\pretrained\\resnet_v1_50.ckpt', 'lr_init': 0.0005, 'max_input_size': 1500, 'metadataset': 'training-datasets\\iteration-0\\UnaugmentedDataSet_DLC-attempt-5Dec3\\Documentation_data-DLC-attempt-5_95shuffle1.pickle', 'min_input_size': 64, 'multi_stage': False, 'multi_step': [[0.005, 10000], [0.02, 430000], [0.002, 730000], [0.001, 1030000]], 'net_type': 'resnet_50', 'num_joints': 17, 'pos_dist_thresh': 17, 'project_path': 'C:\\Users\\bayle\\Desktop\\DLCs\\test 5-troubleshooting\\DLC-attempt-5-BR-2022-12-03', 'rotation': 25, 'rotratio': 0.4, 'save_iters': 50000, 'scale_jitter_lo': 0.5, 'scale_jitter_up': 1.25, 'covering': True, 'elastic_transform': True, 'motion_blur': True, 'motion_blur_params': {'k': 7, 'angle': (-90, 90)}}
+Starting training....
+iteration: 1000 loss: 0.0296 lr: 0.005
+iteration: 2000 loss: 0.0145 lr: 0.005
+iteration: 3000 loss: 0.0114 lr: 0.005
+iteration: 4000 loss: 0.0098 lr: 0.005
+iteration: 5000 loss: 0.0090 lr: 0.005
+iteration: 6000 loss: 0.0083 lr: 0.005
+iteration: 7000 loss: 0.0079 lr: 0.005
+iteration: 8000 loss: 0.0074 lr: 0.005
+iteration: 9000 loss: 0.0072 lr: 0.005
+iteration: 10000 loss: 0.0069 lr: 0.005
+iteration: 11000 loss: 0.0082 lr: 0.02
+iteration: 12000 loss: 0.0073 lr: 0.02
+iteration: 13000 loss: 0.0068 lr: 0.02
+iteration: 14000 loss: 0.0062 lr: 0.02
+iteration: 15000 loss: 0.0060 lr: 0.02
+iteration: 16000 loss: 0.0057 lr: 0.02
+iteration: 17000 loss: 0.0054 lr: 0.02
+iteration: 18000 loss: 0.0053 lr: 0.02
+iteration: 19000 loss: 0.0051 lr: 0.02
+iteration: 20000 loss: 0.0051 lr: 0.02
+iteration: 21000 loss: 0.0049 lr: 0.02
+iteration: 22000 loss: 0.0048 lr: 0.02
+iteration: 23000 loss: 0.0046 lr: 0.02
+iteration: 24000 loss: 0.0046 lr: 0.02
+iteration: 25000 loss: 0.0045 lr: 0.02
+iteration: 26000 loss: 0.0044 lr: 0.02
+iteration: 27000 loss: 0.0043 lr: 0.02
+iteration: 28000 loss: 0.0043 lr: 0.02
+iteration: 29000 loss: 0.0041 lr: 0.02
+iteration: 30000 loss: 0.0041 lr: 0.02
+iteration: 31000 loss: 0.0040 lr: 0.02
+iteration: 32000 loss: 0.0040 lr: 0.02
+iteration: 33000 loss: 0.0040 lr: 0.02
+iteration: 34000 loss: 0.0039 lr: 0.02
+iteration: 35000 loss: 0.0039 lr: 0.02
+iteration: 36000 loss: 0.0038 lr: 0.02
+iteration: 37000 loss: 0.0038 lr: 0.02
+iteration: 38000 loss: 0.0037 lr: 0.02
+iteration: 39000 loss: 0.0037 lr: 0.02
+iteration: 40000 loss: 0.0037 lr: 0.02
+iteration: 41000 loss: 0.0036 lr: 0.02
+iteration: 42000 loss: 0.0037 lr: 0.02
+iteration: 43000 loss: 0.0036 lr: 0.02
+iteration: 44000 loss: 0.0035 lr: 0.02
+iteration: 45000 loss: 0.0036 lr: 0.02
+iteration: 46000 loss: 0.0035 lr: 0.02
+iteration: 47000 loss: 0.0035 lr: 0.02
+iteration: 48000 loss: 0.0034 lr: 0.02
+iteration: 49000 loss: 0.0034 lr: 0.02
+iteration: 50000 loss: 0.0035 lr: 0.02
+2022-12-04 05:05:48.378212: W tensorflow/core/kernels/queue_base.cc:277] _0_fifo_queue: Skipping cancelled enqueue attempt with queue not closed
+Exception in thread Thread-2:
+Traceback (most recent call last):
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\client\session.py", line 1378, in _do_call
+    return fn(*args)
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\client\session.py", line 1361, in _run_fn
+    return self._call_tf_sessionrun(options, feed_dict, fetch_list,
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\client\session.py", line 1454, in _call_tf_sessionrun
+    return tf_session.TF_SessionRun_wrapper(self._session, options, feed_dict,
+tensorflow.python.framework.errors_impl.CancelledError: Enqueue operation was cancelled
+         [[{{node fifo_queue_enqueue}}]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\pose_estimation_tensorflow\core\train.py", line 83, in load_and_enqueue
+    sess.run(enqueue_op, feed_dict=food)
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\client\session.py", line 968, in run
+    result = self._run(None, fetches, feed_dict, options_ptr,
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\client\session.py", line 1191, in _run
+    results = self._do_run(handle, final_targets, final_fetches,
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\client\session.py", line 1371, in _do_run
+    return self._do_call(_run_fn, feeds, fetches, targets, options,
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\client\session.py", line 1397, in _do_call
+    raise type(e)(node_def, op, message)  # pylint: disable=no-value-for-parameter
+tensorflow.python.framework.errors_impl.CancelledError: Graph execution error:
+
+Detected at node 'fifo_queue_enqueue' defined at (most recent call last):
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\runpy.py", line 194, in _run_module_as_main
+      return _run_code(code, main_globals, None,
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\runpy.py", line 87, in _run_code
+      exec(code, run_globals)
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\__main__.py", line 22, in <module>
+      deeplabcut.launch_dlc()
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\launch_script.py", line 50, in launch_dlc
+      app.MainLoop()
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\wx\core.py", line 2167, in MainLoop
+      rv = wx.PyApp.MainLoop(self)
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\label_frames.py", line 232, in label_frames
+      label_frames(self.config)
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\label_frames.py", line 101, in label_frames
+      labeling_toolbox.show(config, config3d, sourceCam, imtypes, jump_unlabeled)
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\labeling_toolbox.py", line 971, in show
+      app.MainLoop()
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\wx\core.py", line 2167, in MainLoop
+      rv = wx.PyApp.MainLoop(self)
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\train_network.py", line 315, in train_network
+      deeplabcut.train_network(
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\pose_estimation_tensorflow\training.py", line 210, in train_network
+      train(
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\pose_estimation_tensorflow\core\train.py", line 168, in train
+      batch, enqueue_op, placeholders = setup_preloading(batch_spec)
+    File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\pose_estimation_tensorflow\core\train.py", line 69, in setup_preloading
+      enqueue_op = q.enqueue(placeholders_list)
+Node: 'fifo_queue_enqueue'
+Enqueue operation was cancelled
+         [[{{node fifo_queue_enqueue}}]]
+
+Original stack trace for 'fifo_queue_enqueue':
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\__main__.py", line 22, in <module>
+    deeplabcut.launch_dlc()
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\launch_script.py", line 50, in launch_dlc
+    app.MainLoop()
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\wx\core.py", line 2167, in MainLoop
+    rv = wx.PyApp.MainLoop(self)
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\label_frames.py", line 232, in label_frames
+    label_frames(self.config)
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\label_frames.py", line 101, in label_frames
+    labeling_toolbox.show(config, config3d, sourceCam, imtypes, jump_unlabeled)
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\labeling_toolbox.py", line 971, in show
+    app.MainLoop()
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\wx\core.py", line 2167, in MainLoop
+    rv = wx.PyApp.MainLoop(self)
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\train_network.py", line 315, in train_network
+    deeplabcut.train_network(
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\pose_estimation_tensorflow\training.py", line 210, in train_network
+    train(
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\pose_estimation_tensorflow\core\train.py", line 168, in train
+    batch, enqueue_op, placeholders = setup_preloading(batch_spec)
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\pose_estimation_tensorflow\core\train.py", line 69, in setup_preloading
+    enqueue_op = q.enqueue(placeholders_list)
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\ops\data_flow_ops.py", line 346, in enqueue
+    return gen_data_flow_ops.queue_enqueue_v2(
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\ops\gen_data_flow_ops.py", line 4459, in queue_enqueue_v2
+    _, _, _op, _outputs = _op_def_library._apply_op_helper(
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\framework\op_def_library.py", line 795, in _apply_op_helper
+    op = g._create_op_internal(op_type_name, inputs, dtypes=None,
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\framework\ops.py", line 3798, in _create_op_internal
+    ret = Operation(
+
+The network is now trained and ready to evaluate. Use the function 'evaluate_network' to evaluate the network.
+Config:
+{'all_joints': [[0],
+                [1],
+                [2],
+                [3],
+                [4],
+                [5],
+                [6],
+                [7],
+                [8],
+                [9],
+                [10],
+                [11],
+                [12],
+                [13],
+                [14],
+                [15],
+                [16]],
+ 'all_joints_names': ['L.H. Distal digit',
+                      'L.H. distal digit',
+                      'L.H. medial digit',
+                      'L.H. Medial digit',
+                      'L.H. Thumbnub',
+                      'L.H. metatarsals',
+                      'L.H. Ankle',
+                      'L.H. Knee',
+                      'Tailbase',
+                      'R.H. Knee',
+                      'R.H. Ankle',
+                      'R.H. metatarsals',
+                      'R.H. Thumbnub',
+                      'R.H. Medial digit',
+                      'R.H. medial digit',
+                      'R.H. distal digit',
+                      'R.H. Distal digit'],
+ 'batch_size': 1,
+ 'crop_pad': 0,
+ 'dataset': 'training-datasets\\iteration-0\\UnaugmentedDataSet_DLC-attempt-5Dec3\\DLC-attempt-5_BR95shuffle1.mat',
+ 'dataset_type': 'imgaug',
+ 'deterministic': False,
+ 'fg_fraction': 0.25,
+ 'global_scale': 0.8,
+ 'init_weights': 'C:\\Users\\bayle\\anaconda3\\envs\\DEEPLABCUT\\lib\\site-packages\\deeplabcut\\pose_estimation_tensorflow\\models\\pretrained\\resnet_v1_50.ckpt',
+ 'intermediate_supervision': False,
+ 'intermediate_supervision_layer': 12,
+ 'location_refinement': True,
+ 'locref_huber_loss': True,
+ 'locref_loss_weight': 1.0,
+ 'locref_stdev': 7.2801,
+ 'log_dir': 'log',
+ 'mean_pixel': [123.68, 116.779, 103.939],
+ 'mirror': False,
+ 'net_type': 'resnet_50',
+ 'num_joints': 17,
+ 'optimizer': 'sgd',
+ 'pairwise_huber_loss': True,
+ 'pairwise_predict': False,
+ 'partaffinityfield_predict': False,
+ 'regularize': False,
+ 'scoremap_dir': 'test',
+ 'shuffle': True,
+ 'snapshot_prefix': 'C:\\Users\\bayle\\Desktop\\DLCs\\test '
+                    '5-troubleshooting\\DLC-attempt-5-BR-2022-12-03\\dlc-models\\iteration-0\\DLC-attempt-5Dec3-trainset95shuffle1\\test\\snapshot',
+ 'stride': 8.0,
+ 'weigh_negatives': False,
+ 'weigh_only_present_joints': False,
+ 'weigh_part_predictions': False,
+ 'weight_decay': 0.0001}
+Running  DLC_resnet50_DLC-attempt-5Dec3shuffle1_50000  with # of training iterations: 50000
+C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\keras\engine\base_layer_v1.py:1694: UserWarning: `layer.apply` is deprecated and will be removed in a future version. Please use `layer.__call__` method instead.
+  warnings.warn('`layer.apply` is deprecated and '
+Running evaluation ...
+40it [00:08,  4.74it/s]
+Analysis is done and the results are stored (see evaluation-results) for snapshot:  snapshot-50000
+Results for 50000  training iterations: 95 1 train error: 2.29 pixels. Test error: 2.89  pixels.
+With pcutoff of 0.6  train error: 2.29 pixels. Test error: 2.89 pixelsThereby, the errors are given by the average distances between the labels by DLC and the scorer.
+Plotting...
+100%|████████████████████████████████| 40/40 [00:10<00:00,  3.85it/s]
+The network is evaluated and the results are stored in the subdirectory 'evaluation_results'.
+Please check the results, then choose the best model (snapshot) for prediction. You can update the config.yaml file with the appropriate index for the 'snapshotindex'.
+Use the function 'analyze_video' to make predictions on new videos.
+Otherwise, consider adding more labeled-data and retraining the network (see DeepLabCut workflow Fig 2, Nath 2019)
+Config:
+{'all_joints': [[0],
+                [1],
+                [2],
+                [3],
+                [4],
+                [5],
+                [6],
+                [7],
+                [8],
+                [9],
+                [10],
+                [11],
+                [12],
+                [13],
+                [14],
+                [15],
+                [16]],
+ 'all_joints_names': ['L.H. Distal digit',
+                      'L.H. distal digit',
+                      'L.H. medial digit',
+                      'L.H. Medial digit',
+                      'L.H. Thumbnub',
+                      'L.H. metatarsals',
+                      'L.H. Ankle',
+                      'L.H. Knee',
+                      'Tailbase',
+                      'R.H. Knee',
+                      'R.H. Ankle',
+                      'R.H. metatarsals',
+                      'R.H. Thumbnub',
+                      'R.H. Medial digit',
+                      'R.H. medial digit',
+                      'R.H. distal digit',
+                      'R.H. Distal digit'],
+ 'batch_size': 1,
+ 'crop_pad': 0,
+ 'dataset': 'training-datasets\\iteration-0\\UnaugmentedDataSet_DLC-attempt-5Dec3\\DLC-attempt-5_BR95shuffle1.mat',
+ 'dataset_type': 'imgaug',
+ 'deterministic': False,
+ 'fg_fraction': 0.25,
+ 'global_scale': 0.8,
+ 'init_weights': 'C:\\Users\\bayle\\anaconda3\\envs\\DEEPLABCUT\\lib\\site-packages\\deeplabcut\\pose_estimation_tensorflow\\models\\pretrained\\resnet_v1_50.ckpt',
+ 'intermediate_supervision': False,
+ 'intermediate_supervision_layer': 12,
+ 'location_refinement': True,
+ 'locref_huber_loss': True,
+ 'locref_loss_weight': 1.0,
+ 'locref_stdev': 7.2801,
+ 'log_dir': 'log',
+ 'mean_pixel': [123.68, 116.779, 103.939],
+ 'mirror': False,
+ 'net_type': 'resnet_50',
+ 'num_joints': 17,
+ 'optimizer': 'sgd',
+ 'pairwise_huber_loss': True,
+ 'pairwise_predict': False,
+ 'partaffinityfield_predict': False,
+ 'regularize': False,
+ 'scoremap_dir': 'test',
+ 'shuffle': True,
+ 'snapshot_prefix': 'C:\\Users\\bayle\\Desktop\\DLCs\\test '
+                    '5-troubleshooting\\DLC-attempt-5-BR-2022-12-03\\dlc-models\\iteration-0\\DLC-attempt-5Dec3-trainset95shuffle1\\test\\snapshot',
+ 'stride': 8.0,
+ 'weigh_negatives': False,
+ 'weigh_only_present_joints': False,
+ 'weigh_part_predictions': False,
+ 'weight_decay': 0.0001}
+C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\tensorflow\python\keras\engine\base_layer_v1.py:1694: UserWarning: `layer.apply` is deprecated and will be removed in a future version. Please use `layer.__call__` method instead.
+  warnings.warn('`layer.apply` is deprecated and '
+Analyzing data...
+3it [00:00,  3.55it/s]
+Saving plots...
+100%|██████████████████████████████████| 3/3 [00:02<00:00,  1.10it/s]
+Config:
+{'all_joints': [[0],
+                [1],
+                [2],
+                [3],
+                [4],
+                [5],
+                [6],
+                [7],
+                [8],
+                [9],
+                [10],
+                [11],
+                [12],
+                [13],
+                [14],
+                [15],
+                [16]],
+ 'all_joints_names': ['L.H. Distal digit',
+                      'L.H. distal digit',
+                      'L.H. medial digit',
+                      'L.H. Medial digit',
+                      'L.H. Thumbnub',
+                      'L.H. metatarsals',
+                      'L.H. Ankle',
+                      'L.H. Knee',
+                      'Tailbase',
+                      'R.H. Knee',
+                      'R.H. Ankle',
+                      'R.H. metatarsals',
+                      'R.H. Thumbnub',
+                      'R.H. Medial digit',
+                      'R.H. medial digit',
+                      'R.H. distal digit',
+                      'R.H. Distal digit'],
+ 'batch_size': 1,
+ 'crop_pad': 0,
+ 'dataset': 'training-datasets\\iteration-0\\UnaugmentedDataSet_DLC-attempt-5Dec3\\DLC-attempt-5_BR95shuffle1.mat',
+ 'dataset_type': 'imgaug',
+ 'deterministic': False,
+ 'fg_fraction': 0.25,
+ 'global_scale': 0.8,
+ 'init_weights': 'C:\\Users\\bayle\\anaconda3\\envs\\DEEPLABCUT\\lib\\site-packages\\deeplabcut\\pose_estimation_tensorflow\\models\\pretrained\\resnet_v1_50.ckpt',
+ 'intermediate_supervision': False,
+ 'intermediate_supervision_layer': 12,
+ 'location_refinement': True,
+ 'locref_huber_loss': True,
+ 'locref_loss_weight': 1.0,
+ 'locref_stdev': 7.2801,
+ 'log_dir': 'log',
+ 'mean_pixel': [123.68, 116.779, 103.939],
+ 'mirror': False,
+ 'net_type': 'resnet_50',
+ 'num_joints': 17,
+ 'optimizer': 'sgd',
+ 'pairwise_huber_loss': True,
+ 'pairwise_predict': False,
+ 'partaffinityfield_predict': False,
+ 'regularize': False,
+ 'scoremap_dir': 'test',
+ 'shuffle': True,
+ 'snapshot_prefix': 'C:\\Users\\bayle\\Desktop\\DLCs\\test '
+                    '5-troubleshooting\\DLC-attempt-5-BR-2022-12-03\\dlc-models\\iteration-0\\DLC-attempt-5Dec3-trainset95shuffle1\\test\\snapshot',
+ 'stride': 8.0,
+ 'weigh_negatives': False,
+ 'weigh_only_present_joints': False,
+ 'weigh_part_predictions': False,
+ 'weight_decay': 0.0001}
+Using snapshot-50000 for model C:\Users\bayle\Desktop\DLCs\test 5-troubleshooting\DLC-attempt-5-BR-2022-12-03\dlc-models\iteration-0\DLC-attempt-5Dec3-trainset95shuffle1
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 1-1 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 1-1 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:43<00:00,  5.81it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 1-2 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 1-2 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:38<00:00,  5.89it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 1-3 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 1-3 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:36<00:00,  5.92it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 1-4 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 1-4 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:34<00:00,  5.97it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 2-1 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 2-1 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:32<00:00,  6.00it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 2-2 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 2-2 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:35<00:00,  5.95it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 2-3 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 2-3 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:38<00:00,  5.89it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 2-4 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 2-4 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:38<00:00,  5.89it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 3-1 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 3-1 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:37<00:00,  5.90it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 3-2 SCI 8W 4cm.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 3-2 SCI 8W 4cm.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:35<00:00,  5.95it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 3-3 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 3-3 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:34<00:00,  5.96it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 4-1 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 4-1 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:31<00:00,  6.01it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 4-1a SCI 8W 10cm.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 4-1a SCI 8W 10cm.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:33<00:00,  5.98it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 4-2 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 4-2 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:36<00:00,  5.93it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 4-3 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 4-3 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:35<00:00,  5.94it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 4-4 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 4-4 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:34<00:00,  5.97it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 5-1 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 5-1 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:32<00:00,  6.00it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 5-2 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 5-2 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:31<00:00,  6.02it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 5-3 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 5-3 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:33<00:00,  5.99it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 5-4 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 5-4 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:36<00:00,  5.94it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 6-1 SCI 8W 10cm.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 6-1 SCI 8W 10cm.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:34<00:00,  5.97it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 6-1 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 6-1 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:33<00:00,  5.98it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 6-1a SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 6-1a SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:31<00:00,  6.01it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 6-2 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 6-2 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:31<00:00,  6.02it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 6-4 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 6-4 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:30<00:00,  6.04it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 7-1 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 7-1 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:33<00:00,  5.97it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 7-2 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 7-2 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:34<00:00,  5.96it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 7-3 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 7-3 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:34<00:00,  5.97it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 7-4 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 7-4 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:33<00:00,  5.99it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 8-1 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 8-1 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:32<00:00,  6.00it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 8-2 SCI 8W 6cm.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 8-2 SCI 8W 6cm.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:31<00:00,  6.01it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 8-4 SCI 8W 8cm.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 8-4 SCI 8W 8cm.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:32<00:00,  6.00it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 9-1 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 9-1 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:35<00:00,  5.94it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 9-2 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 9-2 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:34<00:00,  5.96it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 9-3 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 9-3 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:35<00:00,  5.95it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+Starting to analyze %  J:\220829_treadscan raw videos\8-29-22 9-4 SCI 8W.avi
+Loading  J:\220829_treadscan raw videos\8-29-22 9-4 SCI 8W.avi
+Duration of video [s]:  19.79 , recorded with  101.0 fps!
+Overall # of frames:  1999  found with (before cropping) frame dimensions:  656 370
+Starting to extract posture
+100%|███████████████████████████▉| 1995/1999 [05:34<00:00,  5.96it/s]
+Saving results in J:\220829_treadscan raw videos...
+Saving csv poses!
+The videos are analyzed. Now your research can truly start!
+ You can create labeled videos with 'create_labeled_video'
+If the tracking is not satisfactory for some videos, consider expanding the training set. You can use the function 'extract_outlier_frames' to extract a few representative outlier frames.
+Loading  J:\220829_treadscan raw videos\8-29-22 1-1 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 1-2 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 1-3 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 1-4 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 2-1 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 2-2 SCI 8W.avi and data.
+C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\utils\plotting.py:56: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  fig1 = plt.figure(figsize=(8, 6))
+Loading  J:\220829_treadscan raw videos\8-29-22 2-3 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 2-4 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 3-1 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 3-2 SCI 8W 4cm.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 3-3 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 4-1 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 4-1a SCI 8W 10cm.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 4-2 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 4-3 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 4-4 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 5-1 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 5-2 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 5-3 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 5-4 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 6-1 SCI 8W 10cm.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 6-1 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 6-1a SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 6-2 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 6-4 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 7-1 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 7-2 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 7-3 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 7-4 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 8-1 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 8-2 SCI 8W 6cm.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 8-4 SCI 8W 8cm.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 9-1 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 9-2 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 9-3 SCI 8W.avi and data.
+Loading  J:\220829_treadscan raw videos\8-29-22 9-4 SCI 8W.avi and data.
+Plots created! Please check the directory "plot-poses" within the video directory
+Traceback (most recent call last):
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\create_videos.py", line 383, in help_function
+    os.remove("help.txt")
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'help.txt'
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Loading DLC 2.2.3...
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 2-3 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 4-1 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 1-1 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 2-3 SCI 8W.avi and data.
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 3-2 SCI 8W 4cm.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 2-1 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 1-4 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 3-3 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 4-1a SCI 8W 10cm.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 2-4 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 2-2 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 4-3 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 4-4 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 3-1 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 1-3 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 4-2 SCI 8W.avi
+Starting to process video: J:\220829_treadscan raw videos\8-29-22 1-2 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 4-1 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 1-1 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 3-2 SCI 8W 4cm.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 2-1 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 1-4 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 3-3 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 4-1a SCI 8W 10cm.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 2-4 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 2-2 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 4-3 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 4-4 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 3-1 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 1-3 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 4-2 SCI 8W.avi and data.
+Loading J:\220829_treadscan raw videos\8-29-22 1-2 SCI 8W.avi and data.
+Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|                                       | 0/1999 [00:00<?, ?it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|                                       | 0/1999 [00:00<?, ?it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|▏                              | 9/1999 [00:00<00:48, 40.64it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|▏                              | 9/1999 [00:00<00:35, 55.55it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|                                       | 0/1999 [00:00<?, ?it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|                                       | 0/1999 [00:00<?, ?it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|                                       | 0/1999 [00:00<?, ?it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|▏                              | 9/1999 [00:00<00:28, 70.23it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|                                       | 0/1999 [00:00<?, ?it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|                                       | 0/1999 [00:00<?, ?it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  1%|▏                             | 15/1999 [00:00<01:56, 17.09it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|                                       | 0/1999 [00:00<?, ?it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  1%|▎                             | 18/1999 [00:01<02:26, 13.49it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Duration of video [s]: 19.79, recorded with 101 fps!
+Generating frames and creating video.
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  0%|                                       | 0/1999 [00:00<?, ?it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [05:31<00:00,  6.02it/s]
+ 65%|██████████████████▎         | 1304/1999 [05:32<05:45,  2.01it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 5-1 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 5-1 SCI 8W.avi and data.
+100%|████████████████████████████| 1999/1999 [05:37<00:00,  5.92it/s]
+ 68%|██████████████████▉         | 1351/1999 [05:39<02:00,  5.36it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 5-2 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 5-2 SCI 8W.avi and data.
+ 59%|████████████████▌           | 1186/1999 [05:42<07:04,  1.92it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+ 65%|██████████████████▏         | 1299/1999 [05:47<05:53,  1.98it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [05:58<00:00,  5.57it/s]
+ 61%|█████████████████▏          | 1226/1999 [06:00<06:09,  2.09it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 5-3 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 5-3 SCI 8W.avi and data.
+ 68%|██████████████████▉         | 1354/1999 [06:08<03:19,  3.24it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [06:16<00:00,  5.31it/s]
+  4%|█▏                            | 80/1999 [00:34<21:12,  1.51it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 5-4 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 5-4 SCI 8W.avi and data.
+ 70%|███████████████████▌        | 1393/1999 [06:22<03:14,  3.11it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [06:25<00:00,  5.19it/s]
+  6%|█▋                           | 119/1999 [00:44<12:17,  2.55it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 6-1 SCI 8W 10cm.avi
+Loading J:\220829_treadscan raw videos\8-29-22 6-1 SCI 8W 10cm.avi and data.
+100%|████████████████████████████| 1999/1999 [06:31<00:00,  5.11it/s]
+  8%|██▎                          | 160/1999 [00:44<11:11,  2.74it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+ 73%|████████████████████▌       | 1464/1999 [06:33<03:00,  2.96it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 6-1 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 6-1 SCI 8W.avi and data.
+  2%|▍                             | 30/1999 [00:07<06:27,  5.08it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [07:01<00:00,  4.74it/s]
+ 71%|███████████████████▊        | 1415/1999 [07:02<05:08,  1.89it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 6-1a SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 6-1a SCI 8W.avi and data.
+  5%|█▍                            | 92/1999 [00:29<09:21,  3.39it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [07:11<00:00,  4.63it/s]
+ 14%|████                         | 282/1999 [01:31<02:21, 12.11it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 6-2 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 6-2 SCI 8W.avi and data.
+100%|████████████████████████████| 1999/1999 [07:18<00:00,  4.56it/s]
+ 13%|███▊                         | 264/1999 [00:55<11:25,  2.53it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 6-4 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 6-4 SCI 8W.avi and data.
+  2%|▋                             | 46/1999 [00:10<08:17,  3.93it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+ 86%|████████████████████████▏   | 1728/1999 [07:26<00:26, 10.42it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [08:05<00:00,  4.12it/s]
+ 92%|█████████████████████████▊  | 1842/1999 [08:07<00:57,  2.74it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 7-1 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 7-1 SCI 8W.avi and data.
+ 15%|████▍                        | 307/1999 [01:03<02:36, 10.83it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [08:31<00:00,  3.91it/s]
+100%|████████████████████████████| 1999/1999 [08:33<00:00,  3.89it/s]
+ 29%|████████▌                    | 587/1999 [02:51<02:37,  8.94it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 7-2 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 7-2 SCI 8W.avi and data.
+100%|███████████████████████████▉| 1997/1999 [08:34<00:00,  7.27it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 7-3 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 7-3 SCI 8W.avi and data.
+100%|████████████████████████████| 1999/1999 [08:35<00:00,  3.88it/s]
+ 31%|████████▉                    | 618/1999 [02:47<09:45,  2.36it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 7-4 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 7-4 SCI 8W.avi and data.
+ 16%|████▋                        | 323/1999 [01:20<02:32, 10.96it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  5%|█▌                           | 105/1999 [00:27<12:27,  2.53it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  1%|▏                             | 13/1999 [00:02<09:13,  3.59it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [09:14<00:00,  3.60it/s]
+ 96%|██████████████████████████▊ | 1918/1999 [09:16<00:36,  2.21it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 8-1 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 8-1 SCI 8W.avi and data.
+  7%|█▉                           | 134/1999 [00:44<11:44,  2.65it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [09:36<00:00,  3.47it/s]
+  8%|██▎                          | 161/1999 [00:56<10:24,  2.94it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 8-2 SCI 8W 6cm.avi
+Loading J:\220829_treadscan raw videos\8-29-22 8-2 SCI 8W 6cm.avi and data.
+  9%|██▍                          | 170/1999 [01:00<03:21,  9.06it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [09:46<00:00,  3.41it/s]
+ 41%|████████████                 | 829/1999 [03:58<06:30,  2.99it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 8-4 SCI 8W 8cm.avi
+Loading J:\220829_treadscan raw videos\8-29-22 8-4 SCI 8W 8cm.avi and data.
+  2%|▌                             | 34/1999 [00:10<13:44,  2.38it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [06:35<00:00,  5.06it/s]
+ 68%|██████████████████▉         | 1350/1999 [06:57<03:52,  2.79it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 9-1 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 9-1 SCI 8W.avi and data.
+ 30%|████████▌                    | 594/1999 [02:58<09:03,  2.59it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [06:31<00:00,  5.10it/s]
+ 39%|███████████▏                 | 774/1999 [03:31<09:02,  2.26it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 9-2 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 9-2 SCI 8W.avi and data.
+100%|████████████████████████████| 1999/1999 [06:24<00:00,  5.19it/s]
+ 69%|███████████████████▎        | 1376/1999 [07:16<03:29,  2.98it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 9-3 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 9-3 SCI 8W.avi and data.
+ 31%|█████████                    | 621/1999 [03:11<12:12,  1.88it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+  2%|▌                             | 39/1999 [00:15<16:16,  2.01it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [06:17<00:00,  5.30it/s]
+ 36%|██████████▌                  | 724/1999 [03:34<01:51, 11.43it/s]Starting to process video: J:\220829_treadscan raw videos\8-29-22 9-4 SCI 8W.avi
+Loading J:\220829_treadscan raw videos\8-29-22 9-4 SCI 8W.avi and data.
+  4%|█                             | 72/1999 [00:26<10:33,  3.04it/s]Duration of video [s]: 19.79, recorded with 101 fps!
+Overall # of frames: 1999 with cropped frame dimensions: 656 370
+Generating frames and creating video.
+100%|████████████████████████████| 1999/1999 [07:01<00:00,  4.74it/s]
+100%|████████████████████████████| 1999/1999 [07:09<00:00,  4.66it/s]
+100%|████████████████████████████| 1999/1999 [07:52<00:00,  4.23it/s]
+100%|████████████████████████████| 1999/1999 [07:42<00:00,  4.32it/s]
+100%|████████████████████████████| 1999/1999 [10:10<00:00,  3.28it/s]
+100%|████████████████████████████| 1999/1999 [07:21<00:00,  4.53it/s]
+100%|████████████████████████████| 1999/1999 [07:24<00:00,  4.50it/s]
+100%|████████████████████████████| 1999/1999 [07:25<00:00,  4.49it/s]
+100%|████████████████████████████| 1999/1999 [10:29<00:00,  3.17it/s]
+100%|████████████████████████████| 1999/1999 [07:00<00:00,  4.76it/s]
+100%|████████████████████████████| 1999/1999 [06:57<00:00,  4.79it/s]
+100%|████████████████████████████| 1999/1999 [06:51<00:00,  4.86it/s]
+100%|████████████████████████████| 1999/1999 [04:21<00:00,  7.65it/s]
+100%|████████████████████████████| 1999/1999 [04:12<00:00,  7.93it/s]
+100%|████████████████████████████| 1999/1999 [04:11<00:00,  7.95it/s]
+100%|████████████████████████████| 1999/1999 [03:46<00:00,  8.83it/s]
+Traceback (most recent call last):
+  File "C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\gui\extract_outlier_frames.py", line 169, in help_function
+    os.remove("help.txt")
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'help.txt'
+No suitable videos found in ['J:\\220829_treadscan raw videos\\8-29-22 1-1 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 1-2 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 1-3 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 1-4 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 2-1 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 2-2 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 2-3 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 2-4 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 3-1 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 3-2 SCI 8W 4cmDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 3-3 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 4-1 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 4-1a SCI 8W 10cmDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 4-2 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 4-3 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 4-4 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 5-1 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 5-2 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 5-3 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 5-4 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 6-1 SCI 8W 10cmDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 6-1 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 6-1a SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 6-2 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 6-4 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 7-1 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 7-2 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 7-3 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 7-4 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 8-1 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 8-2 SCI 8W 6cmDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 8-4 SCI 8W 8cmDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 9-1 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 9-2 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 9-3 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4', 'J:\\220829_treadscan raw videos\\8-29-22 9-4 SCI 8WDLC_resnet50_DLC-attempt-5Dec3shuffle1_50000_labeled.mp4']
+C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\refine_training_dataset\outlier_frames.py:401: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+  sum_ = temp_dt.sum(axis=1, level=1)
+Method  jump  found  648  putative outlier frames.
+Do you want to proceed with extracting  20  of those?
+If this list is very large, perhaps consider changing the parameters (start, stop, p_bound, comparisonbodyparts) or use a different method.
+yes/no
+Nothing extracted, please change the parameters and start again...
+C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\refine_training_dataset\outlier_frames.py:401: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+  sum_ = temp_dt.sum(axis=1, level=1)
+Method  jump  found  980  putative outlier frames.
+Do you want to proceed with extracting  20  of those?
+If this list is very large, perhaps consider changing the parameters (start, stop, p_bound, comparisonbodyparts) or use a different method.
+yes/no yes
+Nothing extracted, please change the parameters and start again...
+C:\Users\bayle\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\refine_training_dataset\outlier_frames.py:401: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+  sum_ = temp_dt.sum(axis=1, level=1)
+Method  jump  found  433  putative outlier frames.
+Do you want to proceed with extracting  20  of those?
+If this list is very large, perhaps consider changing the parameters (start, stop, p_bound, comparisonbodyparts) or use a different method.
+yes/no
+(DEEPLABCUT) C:\Users\bayle>
